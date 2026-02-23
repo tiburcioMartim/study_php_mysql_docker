@@ -11,7 +11,7 @@
     try {
         $conn = new mysqli($hostname, $username, $password, $database, $port);
         $conn->set_charset("utf8mb4");
-        echo "Conectado com sucesso!";
+        echo "<p style='color: green;'>Conectado com sucesso!</p>";
 
     } catch (mysqli_sql_exception $e) {
         error_log($e->getMessage());

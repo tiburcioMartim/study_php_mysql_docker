@@ -25,7 +25,7 @@
 
             $query_usuario = "INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)";
 
-            $stmt = $conexao->prepare($query_usuario);
+            $stmt = $conn->prepare($query_usuario);
 
             if ($stmt) {
                 $stmt->bind_param("sss", $nome, $email, $senha_cript);
