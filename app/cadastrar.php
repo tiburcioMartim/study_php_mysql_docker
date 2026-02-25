@@ -1,4 +1,6 @@
-<?php require_once("conexao.php"); ?>
+<?php 
+require_once("conexao.php"); 
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -26,7 +28,7 @@
 
             $query_usuario = "INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)";
 
-            $stmt = $conexao->prepare($query_usuario);
+            $stmt = $conn->prepare($query_usuario);
 
             if ($stmt) {
                 $stmt->bind_param("sss", $nome, $email, $senha_cript);
@@ -54,7 +56,7 @@
                 $stmt->close();
             } else {
                 echo "<p style='color: #f00;'>Usuário não cadastrado com sucesso!</p>"; // Erro ao preparar
-                // echo "<p style='color: #f00;'>Erro prepare: " . $conexao->error . "</P>"; // Para debugar
+                // echo "<p style='color: #f00;'>Erro prepare: " . $conn->error . "</P>"; // Para debugar
             }
         }
     ?>
@@ -70,13 +72,12 @@
         value="<?php echo htmlspecialchars($dados['email'] ?? "", ENT_QUOTES, 'UTF-8');?>" required> <br><br>
 
         <label for="senha">Senha</label>
-        <input type="password" name="senha" id="senha_id" placeholder="Senha do uduário"
+        <input type="password" name="senha" id="senha_id" placeholder="Senha do usuário"
         value="<?php echo htmlspecialchars($dados['senha'] ?? "", ENT_QUOTES, 'UTF-8');?>" required> <br><br>
 
         <input type="submit" value="Cadastrar" name="CadUsuario">
 
     </form>
-
 
 </body>
 
