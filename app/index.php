@@ -9,6 +9,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Listar Usuários</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <h2>Listar usuários</h2>
@@ -27,14 +28,15 @@
                 }
 
                 $stmt->bind_result($id, $nome, $email);
-
+                echo "<div class='list_users'>";
                 while ($stmt->fetch()) {
                     echo "<p>"               . 
-                            " ID: <br>"      . htmlspecialchars((int)$id, ENT_QUOTES, 'UTF-8')        . 
-                            " Nome: <br>"    . htmlspecialchars((string)$nome, ENT_QUOTES, 'UTF-8')   . 
-                            " Email: <br>"   . htmlspecialchars((string)$email, ENT_QUOTES, 'UTF-8')  .                    
-                         "</p>";
-                }
+                    " <strong>ID:</strong> "      . htmlspecialchars((int)$id, ENT_QUOTES, 'UTF-8')        . 
+                    " <strong><br>Nome:</strong>"    . htmlspecialchars((string)$nome, ENT_QUOTES, 'UTF-8')   . 
+                    " <strong><br>Email:</strong>"   . htmlspecialchars((string)$email, ENT_QUOTES, 'UTF-8')  .                    
+                    "</p>";
+                    }
+                    echo "</div>";
                 
             } catch (mysqli_sql_exception $e) {
                 error_log($e->getMessage());
