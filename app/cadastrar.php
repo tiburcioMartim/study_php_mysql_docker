@@ -43,14 +43,6 @@ require_once("conexao.php");
                 } else {
                     echo "<p style='color: #f00;'>Usuário não cadastrado com sucesso!</p>"; // Erro ao executar
                     // echo "<p style='color: #f00;'>Erro execute: " . $stmt->error . "</P>"; // Para debugar
-                    echo "<pre>";
-                    echo var_dump($senha_cript);
-                    echo "<br>";
-                    echo var_dump($senhar_cript);
-                    echo "<br>";
-                    echo var_dump($senha);
-                    echo "</pre>";
-
                 }
 
                 $stmt->close();
